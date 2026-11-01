@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#176b4a">
+<title>GharKa — Family Grocery</title>
+<style>
+:root{--g:#176b4a;--g2:#e8f4ec;--ink:#17251d;--muted:#68776e;--bg:#f3f7f3;--line:#e0e9e2;--white:#fff;--amber:#fff3df;--red:#fff0ed;--shadow:0 8px 28px rgba(24,65,42,.07)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font:16px/1.45 system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink)}button,input,select{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+.wrap{max-width:1120px;margin:auto;padding:20px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:26px}.brand{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:850}.logo{display:grid;place-items:center;width:44px;height:44px;background:var(--g);color:white;border-radius:14px;font-size:23px}.topright{display:flex;align-items:center;gap:9px}.pill{background:var(--g2);color:var(--g);font-size:11px;font-weight:800;padding:7px 10px;border-radius:30px}.btn{border:0;border-radius:12px;padding:11px 15px;min-height:44px;font-weight:750;font-size:14px}.primary{background:var(--g);color:#fff}.soft{background:var(--g2);color:var(--g)}.plain{background:#eef2ee;color:#4f5e54}.danger{background:var(--red);color:#a74437}.hero{display:flex;align-items:flex-end;justify-content:space-between;gap:15px;margin-bottom:20px}.eyebrow{color:var(--g);font-size:11px;font-weight:850;letter-spacing:1.3px}.hero h1{font-size:clamp(28px,4vw,39px);letter-spacing:-1px;line-height:1.12;margin:7px 0}.muted{color:var(--muted);font-size:14px}.month{padding:10px 13px;background:#fff;border:1px solid var(--line);border-radius:12px;font-weight:700;font-size:13px;white-space:nowrap}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}.stat,.panel{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}.stat{padding:17px}.stat small{color:var(--muted);font-weight:700}.stat strong{display:block;font-size:26px;margin-top:4px}.layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(260px,.8fr);gap:16px}.panel{padding:20px}.panelhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px}.panel h2{font-size:18px;margin:0}.sub{font-size:12px;color:var(--muted);margin-top:4px}.filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:13px}.filter{border:1px solid var(--line);background:#fff;color:var(--muted);padding:8px 13px;border-radius:30px;font-size:12px;font-weight:750}.filter.active{background:var(--g2);color:var(--g);border-color:#c9e1d0}.items{display:flex;flex-direction:column;gap:9px}.item{display:flex;align-items:center;gap:10px;border:1px solid var(--line);padding:12px;border-radius:14px;min-width:0}.item.done{background:#fbfdfb}.check{width:27px;height:27px;border:1.5px solid #c6d2c9;background:#fff;border-radius:8px;flex:none;color:#fff}.check.checked{background:var(--g);border-color:var(--g)}.itemmain{flex:1;min-width:0}.itemname{font-weight:800;font-size:15px;overflow-wrap:anywhere}.itemmeta{font-size:11px;color:var(--muted);margin-top:3px}.qty{font-size:12px;font-weight:800;background:#f1f5f1;border-radius:8px;padding:7px 9px;white-space:nowrap}.tag{font-size:10px;font-weight:800;border-radius:30px;padding:6px 8px;white-space:nowrap}.pending{background:var(--amber);color:#9b6718}.bought{background:var(--g2);color:var(--g)}.actions{display:flex;gap:3px}.iconbtn{border:0;background:transparent;color:#718078;font-size:19px;padding:5px;min-width:30px}.side{display:flex;flex-direction:column;gap:13px}.voicebox{background:#f6faf6;border:1px dashed #b8d4c0;border-radius:14px;padding:14px}.voicebox h3{font-size:14px;margin:0 0 5px}.voicecontrols{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.record{background:#fff0ed;color:#b33d35}.recording{background:#b33d35;color:white}.audio{width:100%;height:38px;margin-top:9px}.notice{font-size:12px;line-height:1.5;background:#f4f8f4;padding:13px;border-radius:13px;color:#53645a}.empty{text-align:center;color:var(--muted);padding:30px 12px;font-size:13px;line-height:1.7}.login{max-width:420px;margin:7vh auto;background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:var(--shadow)}.login h1{margin:18px 0 6px;font-size:28px}.field{display:flex;flex-direction:column;gap:6px;margin:13px 0}.field label{font-size:13px;font-weight:800;color:#526158}.field input,.field select{width:100%;border:1px solid var(--line);border-radius:11px;padding:12px;font-size:16px;min-height:47px;background:#fff}.row{display:flex;gap:8px;align-items:center}.row>*{min-width:0}.modalback{position:fixed;inset:0;background:#10251bcc;display:grid;place-items:center;padding:14px;z-index:10}.modal{background:#fff;border-radius:20px;padding:22px;width:min(460px,100%);max-height:90dvh;overflow:auto}.modal h2{margin:0 0 5px}.modalfoot{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.catalog{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;max-height:150px;overflow:auto}.catalog button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px;text-align:left;font-size:12px;font-weight:750}.catalog button span{display:block;color:var(--muted);font-size:10px;font-weight:500}.statusline{font-size:12px;color:var(--muted);min-height:18px;margin-top:8px}.footer{text-align:center;color:var(--muted);font-size:11px;margin:20px 0}
+@media(max-width:850px){.stats{grid-template-columns:repeat(2,1fr)}.layout{grid-template-columns:1fr}}
+@media(max-width:600px){.wrap{padding:13px}.top{margin-bottom:20px}.brand{font-size:19px}.pill{display:none}.topright .btn{font-size:12px;padding:9px}.hero{align-items:flex-start;flex-direction:column;gap:9px}.hero h1{font-size:30px}.stats{gap:8px}.stat{padding:13px}.stat strong{font-size:23px}.panel{padding:15px}.panelhead{align-items:flex-start}.panelhead .btn{font-size:12px;padding:9px 10px}.item{gap:7px;padding:10px 8px}.itemname{font-size:14px}.itemmeta{font-size:10px}.qty{font-size:11px;padding:6px}.tag{display:none}.actions .iconbtn{min-width:26px}.modalback{align-items:end;padding:0}.modal{width:100%;border-radius:20px 20px 0 0;padding:20px 16px calc(20px + env(safe-area-inset-bottom));max-height:91dvh}.modalfoot .btn{flex:1}.voicecontrols .btn{flex:1}.audio{height:42px}}
+@media(max-width:360px){.item{gap:5px}.qty{font-size:10px;padding:5px}.catalog{grid-template-columns:1fr}}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #83bd99;outline-offset:2px}
+</style>
+</head>
+<body>
+<div id="loginView" class="wrap">
+  <div class="login">
+    <div class="brand"><div class="logo">⌂</div> GharKa</div>
+    <div class="eyebrow" style="margin-top:22px">FAMILY GROCERY MANAGER</div>
+    <h1>Welcome back</h1><p class="muted">Sign in to see your family's shared grocery list.</p>
+    <form id="loginForm">
+      <div class="field"><label>Email</label><input id="email" type="email" autocomplete="username" required placeholder="you@example.com"></div>
+      <div class="field"><label>Password</label><input id="password" type="password" autocomplete="current-password" required placeholder="Your password"></div>
+      <button class="btn primary" style="width:100%" type="submit">Sign in</button>
+    </form>
+    <div id="loginMessage" class="statusline">Connect your Supabase project in supabase-config.js first.</div>
+  </div>
+</div>
+
+<div id="appView" class="wrap hidden">
+  <header class="top">
+    <div class="brand"><div class="logo">⌂</div> GharKa</div>
+    <div class="topright"><span class="pill">FAMILY SPACE</span><span id="userLabel" class="muted"></span><button class="btn plain" id="signOut">Sign out</button></div>
+  </header>
+  <section class="hero">
+    <div><div class="eyebrow">YOUR FAMILY GROCERY LIST</div><h1 id="welcome">Hello!</h1><div id="subtitle" class="muted"></div></div>
+    <div id="monthLabel" class="month"></div>
+  </section>
+  <section class="stats">
+    <div class="stat"><small>TOTAL ITEMS</small><strong id="total">0</strong></div>
+    <div class="stat"><small>PURCHASED</small><strong id="purchased">0</strong></div>
+    <div class="stat"><small>TO BUY</small><strong id="remaining">0</strong></div>
+    <div class="stat"><small>SPENT</small><strong id="spent">₹0</strong></div>
+  </section>
+  <main class="layout">
+    <section class="panel">
+      <div class="panelhead"><div><h2>Shopping list</h2><div id="listSub" class="sub">Shared family list</div></div>
+        <div class="row"><button id="addBtn" class="btn primary">＋ Add item</button><button id="sendBtn" class="btn soft hidden">↗ Send to Dad</button></div>
+      </div>
+      <div class="filters"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="pending">To buy</button><button class="filter" data-filter="bought">Purchased</button></div>
+      <div id="items" class="items"><div class="empty">Loading your grocery list…</div></div>
+    </section>
+    <aside class="side">
+      <section class="panel">
+        <div class="panelhead"><div><h2>Message for the shopping trip</h2><div class="sub">One voice note for the whole list</div></div><span>🎙️</span></div>
+        <div class="voicebox">
+          <h3>Mom's overall voice message</h3>
+          <div class="muted" style="font-size:12px">Speak in Telugu, English, or mix both.</div>
+          <div class="voicecontrols"><button id="overallRecord" class="btn record">● Record</button><button id="overallStop" class="btn plain" disabled>Stop</button><button id="overallSave" class="btn soft" disabled>Save note</button></div>
+          <div id="overallStatus" class="statusline">No new recording.</div>
+          <audio id="overallAudio" class="audio hidden" controls></audio>
+        </div>
+      </section>
+      <section class="panel"><h2>How GharKa works</h2><p class="notice">Mom adds groceries and optional voice instructions. When ready, she taps <b>Send to Dad</b>. Dad sees the shared list, listens to the recordings and marks purchases.</p><p id="syncStatus" class="statusline">Connecting…</p></section>
+    </aside>
+  </main>
+  <div class="footer">GharKa · Shared family grocery manager</div>
+</div>
+
+<div id="itemModal" class="modalback hidden">
+ <div class="modal">
+  <h2 id="modalTitle">Add grocery</h2><p class="muted">Choose from the catalogue or type your own item.</p>
+  <div class="field"><label>Search grocery catalogue</label><input id="catalogSearch" placeholder="Search rice, dal, oil, soap…"></div>
+  <div id="catalog" class="catalog"></div>
+  <div class="field"><label>Grocery name</label><input id="itemName" placeholder="e.g. Toor dal" required></div>
+  <div class="row">
+   <div class="field" style="flex:1"><label>Quantity</label><input id="itemQty" placeholder="e.g. 2 kg" required></div>
+   <div class="field" style="flex:1"><label>Priority</label><select id="itemPriority"><option>Essential</option><option>Optional</option></select></div>
+  </div>
+  <div class="field"><label>Category</label><select id="itemCategory"><option>Grains & staples</option><option>Pulses</option><option>Oil & spices</option><option>Dairy</option><option>Vegetables</option><option>Cleaning</option><option>Personal care</option><option>Other</option></select></div>
+  <div class="voicebox">
+    <h3>Voice instruction for Dad (optional)</h3>
+    <div class="muted" style="font-size:12px">Example: “Get the same brand as last time.”</div>
+    <div class="voicecontrols"><button id="itemRecord" class="btn record">● Record</button><button id="itemStop" class="btn plain" disabled>Stop</button><button id="itemClearAudio" class="btn plain">Clear</button></div>
+    <div id="itemVoiceStatus" class="statusline">No voice note attached.</div><audio id="itemPreview" class="audio hidden" controls></audio>
+  </div>
+  <div class="modalfoot"><button id="cancelItem" class="btn plain">Cancel</button><button id="saveItem" class="btn primary">Save item</button></div>
+ </div>
+</div>
+
+<div id="priceModal" class="modalback hidden">
+ <div class="modal"><h2>Mark as purchased</h2><p class="muted">Enter the price Dad paid.</p><div class="field"><label>Actual price (₹)</label><input id="purchasePrice" type="number" min="0" step="0.01" placeholder="e.g. 180"></div><div class="modalfoot"><button id="cancelPrice" class="btn plain">Cancel</button><button id="confirmPrice" class="btn primary">Confirm purchase</button></div></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="./supabase-config.js"></script>
+<script>
+(() => {
+const $=id=>document.getElementById(id);
+const CATALOG=[
+["Rice","Grains & staples","🌾"],["Basmati rice","Grains & staples","🍚"],["Wheat flour / Atta","Grains & staples","🌾"],["Rava / Sooji","Grains & staples","🥣"],["Maida","Grains & staples","🌾"],["Poha / Atukulu","Grains & staples","🥣"],["Sugar","Grains & staples","🍬"],["Jaggery","Grains & staples","🟤"],["Salt","Grains & staples","🧂"],
+["Toor dal / Kandi pappu","Pulses","🫘"],["Moong dal / Pesara pappu","Pulses","🫘"],["Chana dal / Senaga pappu","Pulses","🫘"],["Urad dal / Minapa pappu","Pulses","🫘"],["Masoor dal","Pulses","🫘"],["Rajma","Pulses","🫘"],["Chickpeas / Senagalu","Pulses","🫘"],
+["Sunflower oil","Oil & spices","🫗"],["Groundnut oil","Oil & spices","🫗"],["Ghee","Oil & spices","🧈"],["Turmeric powder","Oil & spices","🟡"],["Chilli powder","Oil & spices","🌶️"],["Coriander powder","Oil & spices","🌿"],["Cumin / Jeera","Oil & spices","🌿"],["Mustard seeds","Oil & spices","🌱"],["Garam masala","Oil & spices","🫙"],["Tamarind","Oil & spices","🟤"],
+["Milk","Dairy","🥛"],["Curd","Dairy","🥣"],["Paneer","Dairy","🧀"],["Butter","Dairy","🧈"],
+["Onions","Vegetables","🧅"],["Potatoes","Vegetables","🥔"],["Tomatoes","Vegetables","🍅"],["Green chillies","Vegetables","🌶️"],["Ginger","Vegetables","🫚"],["Garlic","Vegetables","🧄"],["Carrots","Vegetables","🥕"],
+["Dishwash liquid","Cleaning","🧽"],["Detergent powder","Cleaning","🫧"],["Floor cleaner","Cleaning","🧹"],["Toilet cleaner","Cleaning","🧴"],["Scrub pads","Cleaning","🧽"],
+["Bath soap","Personal care","🧼"],["Shampoo","Personal care","🧴"],["Toothpaste","Personal care","🪥"],["Toothbrush","Personal care","🪥"],["Hair oil","Personal care","🧴"],
+["Biscuits","Other","🍪"],["Tea powder","Other","🍵"],["Coffee powder","Other","☕"],["Papad","Other","🥠"],["Pickle","Other","🫙"]
+];
+let sb=null,user=null,profile=null,currentList=null,items=[],filter="all",editingId=null,pendingPurchaseId=null;
+let itemBlob=null,overallBlob=null,itemRecorder=null,overallRecorder=null,itemChunks=[],overallChunks=[],itemPreviewUrl=null,overallPreviewUrl=null,realtimeChannel=null;
+const monthKey=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}`};
+const money=n=>"₹"+Number(n||0).toLocaleString("en-IN");
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const isMom=()=>profile?.role==="mom";
+function msg(id,text){$(id).textContent=text}
+function setSync(t){msg("syncStatus",t)}
+function showLogin(message=""){ $("loginView").classList.remove("hidden");$("appView").classList.add("hidden");if(message)msg("loginMessage",message)}
+function showApp(){ $("loginView").classList.add("hidden");$("appView").classList.remove("hidden")}
+function hide(id){$(id).classList.add("hidden")}function show(id){$(id).classList.remove("hidden")}
+function configReady(){return window.GHARKA_SUPABASE_URL&&window.GHARKA_SUPABASE_ANON_KEY&&!window.GHARKA_SUPABASE_URL.includes("YOUR_")&&!window.GHARKA_SUPABASE_ANON_KEY.includes("YOUR_")}
+async function init(){
+ if(!window.supabase){msg("loginMessage","Could not load Supabase library. Check your internet connection.");return}
+ if(!configReady()){msg("loginMessage","Setup needed: add your Supabase Project URL and anon key in supabase-config.js.");return}
+ sb=window.supabase.createClient(window.GHARKA_SUPABASE_URL,window.GHARKA_SUPABASE_ANON_KEY);
+ const {data:{session}}=await sb.auth.getSession();
+ if(session)await enterApp(session.user);
+ sb.auth.onAuthStateChange(async(_event,session)=>{if(session&&!profile)await enterApp(session.user);if(!session){user=null;profile=null;showLogin()}});
+}
+$("loginForm").addEventListener("submit",async e=>{e.preventDefault();if(!sb){msg("loginMessage","Configure Supabase first.");return}msg("loginMessage","Signing in…");const {data,error}=await sb.auth.signInWithPassword({email:$("email").value.trim(),password:$("password").value});if(error){msg("loginMessage",error.message);return}await enterApp(data.user)});
+async function enterApp(authUser){
+ user=authUser;
+ const {data:p,error}=await sb.from("profiles").select("id,family_id,role,display_name").eq("id",user.id).single();
+ if(error||!p){await sb.auth.signOut();showLogin("Your account has no family profile yet. Ask the family admin to finish the Supabase setup.");return}
+ profile=p;
+ $("userLabel").textContent=p.display_name||p.role;
+ $("welcome").textContent=`Hello, ${p.display_name|| (isMom()?"Mom":"Dad")} 👋`;
+ $("subtitle").textContent=isMom()?"Add groceries, record instructions, then send everything to Dad.":"Mom's shared shopping list and voice instructions are here.";
+ $("monthLabel").textContent=new Date().toLocaleDateString("en-IN",{month:"long",year:"numeric"});
+ $("addBtn").classList.toggle("hidden",!isMom());$("sendBtn").classList.toggle("hidden",!isMom());
+ $("listSub").textContent=isMom()?"Add items as drafts, then send them to Dad":"Items Mom has sent for shopping";
+ showApp();await loadList();subscribe();
+}
+async function loadList(){
+ setSync("Syncing shared list…");
+ const {data:list,error}=await sb.from("grocery_lists").select("*").eq("family_id",profile.family_id).eq("month_key",monthKey()).maybeSingle();
+ if(error){setSync(error.message);return}
+ currentList=list;
+ if(!currentList&&isMom()){
+  const {data:newList,error:createError}=await sb.from("grocery_lists").insert({family_id:profile.family_id,month_key:monthKey(),created_by:user.id}).select().single();
+  if(createError){setSync(createError.message);return}currentList=newList;
+ }
+ if(!currentList){items=[];render();setSync("No list yet. Mom can create one by adding the first item.");return}
+ const query=sb.from("grocery_items").select("*").eq("list_id",currentList.id).order("created_at",{ascending:true});
+ const {data:rows,error:itemError}=await query;
+ if(itemError){setSync(itemError.message);return}
+ items=rows||[];
+ render();await loadOverallAudio();
+ setSync("Synced with your family");
+}
+function subscribe(){
+ if(realtimeChannel)sb.removeChannel(realtimeChannel);
+ realtimeChannel=sb.channel("gharka-family-"+profile.family_id)
+ .on("postgres_changes",{event:"*",schema:"public",table:"grocery_lists",filter:`family_id=eq.${profile.family_id}`},()=>loadList())
+ .on("postgres_changes",{event:"*",schema:"public",table:"grocery_items"},payload=>{if(payload.new?.list_id===currentList?.id||payload.old?.list_id===currentList?.id)loadList()})
+ .subscribe(status=>{if(status==="SUBSCRIBED")setSync("Live updates connected")});
+}
+function visibleItems(){return isMom()?items:items.filter(x=>currentList?.sent_at&&x.sent_to_dad)}
+function render(){
+ const source=visibleItems(),shown=source.filter(x=>filter==="all"||(filter==="bought"?x.status==="purchased":x.status!=="purchased"));
+ const bought=source.filter(x=>x.status==="purchased"),spent=bought.reduce((s,x)=>s+Number(x.price||0),0);
+ $("total").textContent=source.length;$("purchased").textContent=bought.length;$("remaining").textContent=source.length-bought.length;$("spent").textContent=money(spent);
+ $("sendBtn").classList.toggle("hidden",!isMom()||!items.some(x=>!x.sent_to_dad));
+ if(!shown.length){$("items").innerHTML=isMom()?'<div class="empty">Your list is empty.<br>Tap <b>＋ Add item</b> to start.<br>Items stay private to Mom until sent.</div>':'<div class="empty">Mom has not sent any groceries yet.<br>When she sends the list, it will appear here.</div>';return}
+ $("items").innerHTML=shown.map(x=>`<article class="item ${x.status==="purchased"?"done":""}">
+ <button class="check ${x.status==="purchased"?"checked":""}" ${isMom()?"disabled":""} data-buy="${x.id}" aria-label="Mark purchased">${x.status==="purchased"?"✓":""}</button>
+ <div class="itemmain"><div class="itemname">${esc(x.name)}</div><div class="itemmeta">${esc(x.category)} · ${esc(x.priority)}${isMom()&&!x.sent_to_dad?' · <b style="color:#a76a14">Draft</b>':''}</div>
+ <div id="audio-${x.id}"></div></div><span class="qty">${esc(x.quantity)}</span>
+ ${isMom()?`<div class="actions"><button class="iconbtn" data-edit="${x.id}" aria-label="Edit">✎</button><button class="iconbtn" data-delete="${x.id}" aria-label="Delete">×</button></div>`:x.status==="purchased"?`<span class="qty">${money(x.price)}</span>`:`<span class="tag pending">To buy</span>`}
+ </article>`).join("");
+ shown.forEach(async x=>{if(x.voice_path){const {data,error}=await sb.storage.from("grocery-voice").createSignedUrl(x.voice_path,3600);if(!error&&data?.signedUrl){const slot=$("audio-"+x.id);if(slot)slot.innerHTML=`<audio class="audio" controls preload="none" src="${data.signedUrl}"></audio>`}}});
+}
+$("items").addEventListener("click",e=>{
+ const buy=e.target.closest("[data-buy]")?.dataset.buy,edit=e.target.closest("[data-edit]")?.dataset.edit,del=e.target.closest("[data-delete]")?.dataset.delete;
+ if(buy)openPrice(buy);if(edit)openEdit(edit);if(del)deleteItem(del);
+});
+document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");filter=b.dataset.filter;render()}));
+function renderCatalog(){const q=$("catalogSearch").value.toLowerCase();$("catalog").innerHTML=CATALOG.filter(x=>x[0].toLowerCase().includes(q)||x[1].toLowerCase().includes(q)).map(x=>`<button type="button" data-product="${esc(x[0])}" data-cat="${esc(x[1])}">${x[2]} ${esc(x[0])}<span>${esc(x[1])}</span></button>`).join("")||'<div class="muted">No match. Type a custom item below.</div>'}
+$("catalogSearch").addEventListener("input",renderCatalog);
+$("catalog").addEventListener("click",e=>{const b=e.target.closest("[data-product]");if(!b)return;$("itemName").value=b.dataset.product;$("itemCategory").value=b.dataset.cat;if(!$("itemQty").value)$("itemQty").value="1 kg"});
+function openAdd(){editingId=null;$("modalTitle").textContent="Add grocery";$("itemName").value="";$("itemQty").value="";$("itemCategory").value="Grains & staples";$("itemPriority").value="Essential";clearItemAudio();$("catalogSearch").value="";renderCatalog();show("itemModal")}
+async function openEdit(id){const x=items.find(i=>i.id===id);if(!x)return;editingId=id;$("modalTitle").textContent="Edit grocery";$("itemName").value=x.name;$("itemQty").value=x.quantity;$("itemCategory").value=x.category;$("itemPriority").value=x.priority;clearItemAudio();if(x.voice_path){const {data}=await sb.storage.from("grocery-voice").createSignedUrl(x.voice_path,3600);if(data?.signedUrl){$("itemPreview").src=data.signedUrl;show("itemPreview");msg("itemVoiceStatus","Existing voice note attached. Record again to replace it.")}}renderCatalog();show("itemModal")}
+$("addBtn").addEventListener("click",openAdd);$("cancelItem").addEventListener("click",()=>hide("itemModal"));
+async function saveItem(){
+ const name=$("itemName").value.trim(),quantity=$("itemQty").value.trim();if(!name||!quantity){alert("Enter a grocery name and quantity.");return}
+ $("saveItem").disabled=true;$("saveItem").textContent="Saving…";
+ try{
+  if(!currentList){const {data,error}=await sb.from("grocery_lists").insert({family_id:profile.family_id,month_key:monthKey(),created_by:user.id}).select().single();if(error)throw error;currentList=data}
+  let voice_path=editingId?items.find(x=>x.id===editingId)?.voice_path||null:null;
+  if(itemBlob)voice_path=await uploadAudio(itemBlob,"item");
+  const record={list_id:currentList.id,name,category:$("itemCategory").value,quantity,priority:$("itemPriority").value,voice_path,sent_to_dad:false};
+  if(editingId){const {error}=await sb.from("grocery_items").update(record).eq("id",editingId);if(error)throw error}
+  else{const {error}=await sb.from("grocery_items").insert(record);if(error)throw error}
+  hide("itemModal");clearItemAudio();await loadList();
+ }catch(e){alert("Could not save item: "+e.message)}finally{$("saveItem").disabled=false;$("saveItem").textContent="Save item"}
+}
+$("saveItem").addEventListener("click",saveItem);
+async function deleteItem(id){if(!confirm("Delete this grocery item?"))return;const x=items.find(i=>i.id===id);const {error}=await sb.from("grocery_items").delete().eq("id",id);if(error){alert(error.message);return}if(x?.voice_path)await sb.storage.from("grocery-voice").remove([x.voice_path]);await loadList()}
+async function sendToDad(){if(!currentList){alert("Add groceries first.");return}const drafts=items.filter(x=>!x.sent_to_dad);if(!drafts.length){alert("There are no new items to send.");return}const {error}=await sb.from("grocery_items").update({sent_to_dad:true}).eq("list_id",currentList.id).eq("sent_to_dad",false);if(error){alert(error.message);return}const {error:listError}=await sb.from("grocery_lists").update({sent_at:new Date().toISOString()}).eq("id",currentList.id);if(listError){alert(listError.message);return}await loadList();alert(`${drafts.length} grocery item(s) sent to Dad.`)}
+$("sendBtn").addEventListener("click",sendToDad);
+function openPrice(id){pendingPurchaseId=id;$("purchasePrice").value="";show("priceModal")}
+$("cancelPrice").addEventListener("click",()=>hide("priceModal"));
+$("confirmPrice").addEventListener("click",async()=>{const price=Number($("purchasePrice").value);if(!Number.isFinite(price)||price<0){alert("Enter a valid price.");return}const {error}=await sb.from("grocery_items").update({status:"purchased",price}).eq("id",pendingPurchaseId);if(error){alert(error.message);return}hide("priceModal");await loadList()});
+async function uploadAudio(blob,kind){const ext=blob.type.includes("mp4")?"m4a":blob.type.includes("ogg")?"ogg":"webm";const path=`${profile.family_id}/${currentList.id}/${kind}-${Date.now()}.${ext}`;const {error}=await sb.storage.from("grocery-voice").upload(path,blob,{contentType:(blob.type||"audio/webm").split(";")[0],upsert:false});if(error)throw error;return path}
+function supportedMime(){return ["audio/webm;codecs=opus","audio/webm","audio/mp4","audio/ogg;codecs=opus"].find(t=>window.MediaRecorder&&MediaRecorder.isTypeSupported(t))||""}
+async function startRecording(kind){
+ if(!navigator.mediaDevices?.getUserMedia||!window.MediaRecorder){alert("Voice recording is not supported in this browser. Try the latest Chrome or Safari over HTTPS.");return}
+ try{
+  const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+  const mime=supportedMime(),rec=new MediaRecorder(stream,mime?{mimeType:mime}:undefined),chunks=[];
+  rec.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};
+  rec.onstop=()=>{const blob=new Blob(chunks,{type:rec.mimeType||"audio/webm"});stream.getTracks().forEach(t=>t.stop());if(kind==="item"){itemBlob=blob;setPreview(blob,"item");$("itemRecord").disabled=false;$("itemStop").disabled=true;msg("itemVoiceStatus","Voice note ready. It will upload when you save the item.")}else{overallBlob=blob;setPreview(blob,"overall");$("overallRecord").disabled=false;$("overallStop").disabled=true;msg("overallStatus","Recording ready. Tap Save note to upload it.")}};
+  rec.start();if(kind==="item"){itemRecorder=rec;$("itemRecord").disabled=true;$("itemStop").disabled=false;msg("itemVoiceStatus","Recording… speak naturally in Telugu or English.");}else{overallRecorder=rec;$("overallRecord").disabled=true;$("overallStop").disabled=false;msg("overallStatus","Recording… speak naturally in Telugu or English.");}
+ }catch(e){alert("Microphone permission is needed to record voice notes. "+e.message)}
+}
+function stopRecording(kind){const r=kind==="item"?itemRecorder:overallRecorder;if(r&&r.state!=="inactive")r.stop()}
+function setPreview(blob,kind){const url=URL.createObjectURL(blob);if(kind==="item"){if(itemPreviewUrl)URL.revokeObjectURL(itemPreviewUrl);itemPreviewUrl=url;$("itemPreview").src=url;show("itemPreview")}else{if(overallPreviewUrl)URL.revokeObjectURL(overallPreviewUrl);overallPreviewUrl=url;$("overallAudio").src=url;show("overallAudio");$("overallSave").disabled=false}}
+function clearItemAudio(){itemBlob=null;if(itemPreviewUrl)URL.revokeObjectURL(itemPreviewUrl);itemPreviewUrl=null;$("itemPreview").removeAttribute("src");hide("itemPreview");msg("itemVoiceStatus","No voice note attached.")}
+$("itemRecord").addEventListener("click",()=>startRecording("item"));$("itemStop").addEventListener("click",()=>stopRecording("item"));$("itemClearAudio").addEventListener("click",clearItemAudio);
+$("overallRecord").addEventListener("click",()=>startRecording("overall"));$("overallStop").addEventListener("click",()=>stopRecording("overall"));
+$("overallSave").addEventListener("click",async()=>{if(!overallBlob||!currentList){alert("Create the grocery list first.");return}$("overallSave").disabled=true;try{const path=await uploadAudio(overallBlob,"overall");const {error}=await sb.from("grocery_lists").update({overall_voice_path:path}).eq("id",currentList.id);if(error)throw error;currentList.overall_voice_path=path;msg("overallStatus","Overall voice message saved and shared with Dad.");await loadOverallAudio()}catch(e){alert("Could not upload voice note: "+e.message)}finally{$("overallSave").disabled=false}});
+async function loadOverallAudio(){if(!currentList?.overall_voice_path){hide("overallAudio");return}const {data,error}=await sb.storage.from("grocery-voice").createSignedUrl(currentList.overall_voice_path,3600);if(!error&&data?.signedUrl){$("overallAudio").src=data.signedUrl;show("overallAudio");msg("overallStatus","Shared voice message is ready to play.")}}
+$("signOut").addEventListener("click",async()=>{if(realtimeChannel)await sb.removeChannel(realtimeChannel);await sb.auth.signOut();profile=null;user=null;showLogin()});
+init();
+})();
+</script>
+</body>
+</html>
